@@ -1,37 +1,22 @@
 import Image from 'next/image'
+import Card from '@/src/components/card/page'
 
-export default function CardsSection() {
+interface CardsSectionProps {
+    title: string
+}
+
+export default function CardsSection({title}: CardsSectionProps) {
     return (
-        <section>
-            <header className='flex justify-between pb-2'>
-                <h2> Recently played </h2>
-                <p className=' underline underline-offset-2 cursor-pointer'> See more </p>
+        <section className='pb-8'>
+            <header className='flex justify-between items-center pb-2'>
+                <h2> {title} </h2>
+                <p className='text-sm underline underline-offset-2 cursor-pointer'> See more </p>
             </header>
-            <main className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 grid-flow-row gap-x-2'>
-                <article className=' w-full flex flex-col'>
-                    <div className=' bg-gray-500 w-full pt-[100%] rounded-lg mb-2 relative'>
-                        <p className=' absolute top-2 left-4 text-lg font-bold font-hind'> 1 </p>
-                        {/* <Image src={'/'} alt={`name`} width={30} height={30} /> */}
-                    </div>
-                    <p className='text-sm font-semibold truncate'> Track namefffffffff </p>
-                    <p className='text-xs text-gray-font truncate'> Artiste name </p>
-                </article>
-                <article className='w-full flex flex-col'>
-                    <div className=' bg-gray-500 w-full pt-[100%] rounded-lg mb-2 relative'>
-                        <p className=' absolute top-2 left-4 text-lg font-bold font-hind'> 1 </p>
-                        {/* <Image src={'/'} alt={`name`} width={30} height={30} /> */}
-                    </div>
-                    <p className='text-sm font-semibold truncate '> Track name efsf </p>
-                    <p className='text-xs text-gray-font truncate '> Artiste name </p>
-                </article>
-                <article className='w-full flex flex-col'>
-                    <div className=' bg-gray-500 w-full pt-[100%] rounded-lg mb-2 relative'>
-                        <p className=' absolute top-2 left-4 text-lg font-bold font-hind'> 1 </p>
-                        {/* <Image src={'/'} alt={`name`} width={30} height={30} /> */}
-                    </div>
-                    <p className='text-sm font-semibold truncate '> Track name efsf </p>
-                    <p className='text-xs text-gray-font truncate '> Artiste name </p>
-                </article>
+            <main className='grid grid-cols-4 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-10 grid-flow-row gap-x-2'>
+                <Card position={1} imageSrc='' text={'First line'} subText={'Second line'} />
+                <Card position={2} imageSrc='' text={'First line'} subText={'Second line'} />
+                <Card position={3} imageSrc='' text={'First line'} subText={'Second line'} />
+                <Card position={4} imageSrc='' text={'First line'} subText={'Second line'} />
             </main>
         </section>
     )

@@ -9,7 +9,9 @@ export default function Dashboard() {
             <HeaderTitle title='Dashboard' />
             <Filters selected='year' />
             <IndicatorsSection />
-            <CardsSection />
+            <CardsSection title='Recently played' />
+            <CardsSection title='Top artists' />
+            <CardsSection title='Top tracks' />
         </main>
     )
 }
