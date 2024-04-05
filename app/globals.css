@@ -31,3 +31,11 @@ body {
     text-wrap: balance;
   }
 }
+
+h1 {
+  @apply font-hind;
+}
+
+p {
+  @apply font-montserrat;
+}
