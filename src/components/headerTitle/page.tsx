@@ -1,13 +1,37 @@
 import React from 'react';
-import { Home } from 'lucide-react';
+import { Home, History, User, Disc3, ListMusic } from 'lucide-react';
 
-const HeaderTitle = () => { 
+interface HeaderTitleProps { 
+    title: string;
+}
+
+//! Mettre un tableau d'icones pour les différents titres
+
+const HeaderTitle = ({title}: HeaderTitleProps) => { 
+
+    const getIconWithTitle = (title: string) => { 
+        switch (title) { 
+            case 'Dashboard': 
+                return <Home size={24} color='white' />;
+            case 'Recently Played': 
+                return <History size={24} color='white' />;
+            case 'Top artists': 
+                return <User size={24} color='white' />;
+            case 'Top tracks': 
+                return <Disc3 size={24} color='white' />;
+            case 'Playlists': 
+                return <ListMusic size={24} color='white' />;
+            default: 
+                return <Home size={24} color='white' />;
+        }
+    }
+
     return (
         <header className='flex gap-2 items-center justify-start pb-8'>
-            <div className='w-12 h-12 rounded-lg border flex justify-center items-center'>
-                <Home size={32} color='white' />
+            <div className='w-10 h-10 rounded-lg border flex justify-center items-center'>
+                {getIconWithTitle(title)}
             </div>
-            <h1> DASHBOARD </h1>
+            <h1> {title} </h1>
         </header>
     )
 }

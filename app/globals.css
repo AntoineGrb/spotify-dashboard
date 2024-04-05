@@ -26,6 +26,14 @@ h1 {
   @apply font-hind text-white-font text-3xl;
 }
 
+h2 {
+  @apply font-hind text-white-font text-2xl;
+}
+
+/* h3 {
+  @apply font-montserrat text-white-font text-lg;
+} */
+
 p {
-  @apply font-montserrat text-white-font;
+  @apply font-montserrat text-white-font text-base;
 }
