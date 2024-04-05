@@ -23,7 +23,7 @@
 }
 
 h1 {
-  @apply font-hind;
+  @apply font-hind text-white-font text-3xl;
 }
 
 p {
