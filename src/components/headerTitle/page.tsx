@@ -3,7 +3,7 @@ import { Home } from 'lucide-react';
 
 const HeaderTitle = () => { 
     return (
-        <header className='flex gap-2 items-center justify-start'>
+        <header className='flex gap-2 items-center justify-start pb-8'>
             <div className='w-12 h-12 rounded-lg border flex justify-center items-center'>
                 <Home size={32} color='white' />
             </div>
