@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Hind, Roboto, Montserrat} from "next/font/google";
 import "./globals.css";
+import ClientApplication from "@/src/components/clientApplication/page";
 import HeaderMobile from "@/src/components/headerMobile/page";
+import MenuMobile from "@/src/components/menuMobile/page";
 
 const hind = Hind({ weight: ['300', '400', '500' , '600', '700'], subsets:['latin'], variable: '--font-hind' });
 const roboto = Roboto({ weight: ['300', '400', '500', '700'], subsets:['latin'], variable: '--font-roboto' });
@@ -17,11 +19,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="fr">
       <body className={` bg-black ${hind.variable} ${roboto.variable} ${montserrat.variable}`}>
-        <HeaderMobile />
-        {children}
+        <ClientApplication>
+          {children}
+        </ClientApplication>
       </body>
     </html>
   );

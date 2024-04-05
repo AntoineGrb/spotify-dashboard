@@ -2,7 +2,11 @@ import React from 'react';
 import Image from 'next/image';
 import { Menu } from 'lucide-react';
 
-const HeaderMobile = () => { 
+interface HeaderMobileProps { 
+    openMenu: () => void;
+}
+
+const HeaderMobile = ({openMenu}: HeaderMobileProps) => { 
     return (
         <header className='h-24 w-full px-5 flex justify-between items-center'>
             <div className='flex items-center gap-2'>
@@ -11,7 +15,7 @@ const HeaderMobile = () => {
                 </div>
                 <p> User Name </p>
             </div>
-            <Menu size={24} color='white' />
+            <Menu size={24} color='white' onClick={openMenu} />
         </header>
     )
 }

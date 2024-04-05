@@ -5,7 +5,7 @@ import CardsSection from '@/src/components/cardsSection/page';
 
 export default function Dashboard() {
     return (
-        <main className=' px-4 py-8'>
+        <main className='px-4 py-8 lg:px-12'>
             <HeaderTitle title='Dashboard' />
             <Filters selected='year' />
             <IndicatorsSection />

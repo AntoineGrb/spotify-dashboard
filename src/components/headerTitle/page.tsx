@@ -5,8 +5,6 @@ interface HeaderTitleProps {
     title: string;
 }
 
-//! Mettre un tableau d'icones pour les différents titres
-
 const HeaderTitle = ({title}: HeaderTitleProps) => { 
 
     const getIconWithTitle = (title: string) => { 
