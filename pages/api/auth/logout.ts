@@ -1,6 +1,7 @@
 import { serialize } from "cookie";
 import { NextApiRequest, NextApiResponse } from "next";
 
+
 export default function logout(req: NextApiRequest, res: NextApiResponse) { 
     
     // Clear cookies by setting their maxAge to 0
@@ -17,5 +18,5 @@ export default function logout(req: NextApiRequest, res: NextApiResponse) {
         }) 
     ]
     res.setHeader("Set-Cookie", cookies); // Set the cookies
-    res.redirect("/"); // Redirect the user to the home page
+    res.redirect('/'); // Redirect the user to the home page
 }

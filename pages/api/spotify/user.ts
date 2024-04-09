@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
+import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(req, res) { 
+export default async function handler(req: NextApiRequest, res: NextApiResponse) { 
     
     //Acces to cookies to get the access token
     const accessToken = req.cookies.spotify_access_token;

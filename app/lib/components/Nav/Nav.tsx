@@ -11,7 +11,7 @@ export default function Nav({closeMenu}: NavProps) {
     const pathname = usePathname();
     
     return (
-        <nav className=' grow'>
+        <nav>
             <ul className='flex flex-col'>
                 <Link href={`/dashboard`} className={`link ${pathname === '/dashboard' && 'bg-gray-mid'} hover:bg-gray-light`}>
                     <li className='flex gap-3 items-center px-4 py-2'>

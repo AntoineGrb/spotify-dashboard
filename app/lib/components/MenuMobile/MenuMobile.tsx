@@ -2,7 +2,7 @@
 
 import { CircleX } from 'lucide-react';
 import { useMediaQuery } from 'usehooks-ts';
-import Nav from '@/app/lib/components/nav/page';
+import Nav from '@/app/lib/components/Nav/Nav';
 
 
 interface MenuMobileProps { 
