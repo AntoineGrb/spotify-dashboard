@@ -6,7 +6,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 export default function login(req: NextApiRequest, res: NextApiResponse) { 
     const state = generateRandomString(16); // Generate a random string for the state parameter
-    const scope = "user-read-private user-read-email"; // Define the scopes for the request
+    const scope = "user-read-private user-read-email user-read-recently-played user-top-read"; // Define the scopes for the request
 
     // Check if the environment variables are set
     if (!process.env.CLIENT_ID || !process.env.REDIRECT_URI) { 
