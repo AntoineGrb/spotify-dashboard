@@ -39,10 +39,22 @@ export default async function callback(req: NextApiRequest, res: NextApiResponse
     const { access_token, refresh_token, expires_in } = data;
 
     // Set the access token and refresh token as cookies
-    //! Ajouter secure : true pour la production pour que les cookies soient envoyés uniquement sur HTTPS
-    //! Ajouter sameSite: strict pour la production pour que les cookies ne soient pas envoyés sur des sites tiers
-    res.setHeader("Set-Cookie", serialize("spotify_access_token", access_token, { path: "/", httpOnly: true, maxAge: expires_in }));
-    res.setHeader("Set-Cookie", serialize("spotify_refresh_token", refresh_token, { path: "/", httpOnly: true, maxAge: 60 * 60 * 24 * 7 })); // 1 week
-
+    const cookies = [
+        serialize("spotify_access_token", access_token, { 
+            path: "/", 
+            httpOnly: true, 
+            maxAge: expires_in, 
+            secure: process.env.NODE_ENV === 'production', 
+            // sameSite: 'strict'
+        }),
+        serialize("spotify_refresh_token", refresh_token, { 
+            path: "/", 
+            httpOnly: true, 
+            maxAge: 60 * 60 * 24 * 7, // 1 week
+            secure: process.env.NODE_ENV === 'production',
+            // sameSite: 'strict' 
+        }) 
+    ]
+    res.setHeader("Set-Cookie", cookies); // Set the cookies
     res.redirect("/dashboard"); // Redirect the user to the dashboard
 }

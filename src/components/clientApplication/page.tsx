@@ -1,5 +1,7 @@
 'use client'
+
 import React, {useState} from 'react';
+import { AuthProvider } from '@/src/context/AuthContext';
 import HeaderMobile from '@/src/components/headerMobile/page';
 import MenuMobile from '@/src/components/menuMobile/page';
 import MenuDesktop from '../menuDesktop/page';
@@ -14,12 +16,14 @@ export default function ClientApplication({
 
     return (
         <>
-            <div id='app' className='flex flex-col lg:flex-row max-h-[100vh]'>
-              <HeaderMobile openMenu={() => setIsMenuMobileActive(true)} />
-              <MenuMobile isActive={isMenuMobileActive} closeMenu={() => setIsMenuMobileActive(false)} />
-              <MenuDesktop />
-              {children}
-            </div>
+            <AuthProvider>
+              <div id='app' className='flex flex-col lg:flex-row max-h-[100vh]'>
+                <HeaderMobile openMenu={() => setIsMenuMobileActive(true)} />
+                <MenuMobile isActive={isMenuMobileActive} closeMenu={() => setIsMenuMobileActive(false)} />
+                <MenuDesktop />
+                {children}
+              </div>
+            </AuthProvider>
         </>
     )
 }

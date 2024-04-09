@@ -5,7 +5,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 // This API route is used to build the Spotify login URL and redirect the user to it
 
 export default function login(req: NextApiRequest, res: NextApiResponse) { 
-    console.log('login ! ')
     const state = generateRandomString(16); // Generate a random string for the state parameter
     const scope = "user-read-private user-read-email"; // Define the scopes for the request
 

@@ -8,13 +8,19 @@ export default function Indicators() {
     const [data, setData] = useState({});
 
     useEffect(() => {
-        const fetchData = async (url: string) => { 
-            const response = await fetch(url);
-            const data = await response.json();
-            setData(data);
+        const fetchData = async (url: string) => {
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                setData(data);
+                console.log('user data: ', data)
+            } catch {
+                console.error('No data')
+            }
+            
         }
-        fetchData('/api/spotify/recent-tracks')
-    })
+        fetchData('https://api.spotify.com/v1/me')
+    },[])
 
     return (
         <section className='flex justify-start gap-4 pb-10 lg:pb-14'>
