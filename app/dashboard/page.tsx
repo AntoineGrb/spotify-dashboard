@@ -7,6 +7,8 @@ import { getUserProfile } from '@/src/lib/data';
 
 export default async function Dashboard() {
 
+    //! Définir une page erreur
+
     const userData = await getUserProfile();
     console.log('userData server side', userData);
 

@@ -11,7 +11,7 @@ export default function Home() {
           Get statistics about your favorite artists, tracks and playlists.
         </p>
         <button className=' w-36 py-3 rounded-3xl bg-gray-mid hover:bg-gray-light text-white mb-4'>
-          <Link href={'api/auth/login'}>Login</Link>
+          <Link href={'api/auth/login'}>LOGIN</Link>
         </button>
         <small className='text-center text-white'>
           This app is not affiliated with Spotify. It uses the Spotify API to get your data.
