@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { LogOut } from 'lucide-react';
-import { getUserProfile } from '@/src/lib/data';
 
 export default function headerMenuDesktop() {
 

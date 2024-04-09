@@ -1,10 +1,10 @@
 'use client'
 
 import React, {useState} from 'react';
-import { AuthProvider } from '@/src/context/AuthContext';
-import HeaderMobile from '@/src/components/headerMobile/page';
-import MenuMobile from '@/src/components/menuMobile/page';
-import MenuDesktop from '../menuDesktop/page';
+import { AuthProvider } from '@/app/lib/context/AuthContext';
+import HeaderMobile from '@/app/lib/components/HeaderMobile/HeaderMobile';
+import MenuMobile from '@/app/lib/components/MenuMobile/MenuMobile';
+import MenuDesktop from '../MenuDesktop/MenuDesktop';
 
 export default function ClientApplication({
     children,

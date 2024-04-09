@@ -1,7 +1,7 @@
 'use client'
 
 import {useState, useEffect} from 'react';
-import Indicator from '@/src/components/indicator/page';
+import Indicator from '@/app/lib/components/Indicator/Indicator';
 
 export default function Indicators() { 
 

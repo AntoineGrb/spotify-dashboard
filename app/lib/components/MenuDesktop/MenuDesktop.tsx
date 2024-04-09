@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
-import { useAuth } from '@/src/context/AuthContext';
+import { useAuth } from '@/app/lib/context/AuthContext';
 import Nav from "../nav/page"
-import HeaderMenuDesktop from '../headerMenuDesktop/page';
+import HeaderMenuDesktop from '../HeaderMenuDesktop/HeaderMenuDesktop';
 
 export default function MenuDesktop() {
 

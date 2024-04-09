@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Card from '@/src/components/card/page'
+import Card from '@/app/lib/components/Card/Card'
 
 interface CardsSectionProps {
     title: string
