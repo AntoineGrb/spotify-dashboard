@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { LogOut } from 'lucide-react';
 
 export default function headerMenuDesktop() {
@@ -7,7 +8,10 @@ export default function headerMenuDesktop() {
                 {/* <Image src="" alt="profile picture" width={50} height={50} /> */}
             </div>
             <p className=" text-xl"> User Name </p>
-            <LogOut color='white' />
+            <Link href={'/api/auth/logout'}>
+                <LogOut color='white' />
+            </Link>
+
         </header>
     )
 }
