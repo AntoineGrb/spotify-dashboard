@@ -7,7 +7,7 @@ interface CardsSectionProps {
 
 export default function CardsSection({title}: CardsSectionProps) {
     return (
-        <section className='pb-8'>
+        <section className='pb-10'>
             <header className='flex justify-between items-center pb-2'>
                 <h2> {title} </h2>
                 <p className='text-sm underline underline-offset-2 cursor-pointer'> See more </p>

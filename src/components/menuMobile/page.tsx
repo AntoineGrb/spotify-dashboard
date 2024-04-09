@@ -22,7 +22,7 @@ export default function MenuMobile({isActive, closeMenu}: MenuMobileProps) {
                 <header className='flex justify-end pb-10 pr-4'>
                     <CircleX color='white' size={28} cursor={'pointer'} onClick={closeMenu} />
                 </header>
-                <Nav />
+                <Nav closeMenu={closeMenu} />
                 <footer className='flex justify-center'>
                     <small className=' text-white'> Design & developed by AntoineGrb </small>
                 </footer>

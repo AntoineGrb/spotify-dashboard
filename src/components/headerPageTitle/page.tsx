@@ -1,11 +1,11 @@
 import React from 'react';
 import { Home, History, User, Disc3, ListMusic } from 'lucide-react';
 
-interface HeaderTitleProps { 
+interface HeaderPageTitleProps { 
     title: string;
 }
 
-const HeaderTitle = ({title}: HeaderTitleProps) => { 
+const HeaderPageTitle = ({title}: HeaderPageTitleProps) => { 
 
     const getIconWithTitle = (title: string) => { 
         switch (title) { 
@@ -34,4 +34,4 @@ const HeaderTitle = ({title}: HeaderTitleProps) => {
     )
 }
 
-export default HeaderTitle;
+export default HeaderPageTitle;

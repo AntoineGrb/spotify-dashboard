@@ -1,4 +1,4 @@
-import HeaderTitle from '@/src/components/headerTitle/page';
+import HeaderTitle from '@/src/components/headerPageTitle/page';
 import Filters from '@/src/components/filters/page';
 import IndicatorsSection from '@/src/components/indicatorsSection/page';
 import CardsSection from '@/src/components/cardsSection/page';

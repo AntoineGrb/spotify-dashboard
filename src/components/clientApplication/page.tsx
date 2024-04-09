@@ -10,7 +10,7 @@ export default function ClientApplication({
     children: React.ReactNode;
   }>) {
 
-    const [isMenuMobileActive, setIsMenuMobileActive] = useState(true);
+    const [isMenuMobileActive, setIsMenuMobileActive] = useState(false);
 
     return (
         <>

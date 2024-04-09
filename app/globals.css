@@ -23,11 +23,11 @@
 }
 
 h1 {
-  @apply font-hind text-white-font text-3xl;
+  @apply font-hind text-white-font text-3xl font-extralight;
 }
 
 h2 {
-  @apply font-hind text-white-font text-2xl;
+  @apply font-hind text-white-font text-2xl font-extralight;
 }
 
 /* h3 {

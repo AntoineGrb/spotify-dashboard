@@ -20,7 +20,7 @@ const HeaderMobile = ({openMenu}: HeaderMobileProps) => {
                     </div>
                     <p> User Name </p>
                 </div>
-                <Menu size={24} color='white' onClick={openMenu} />
+                <Menu size={24} color='white' onClick={openMenu} className=' cursor-pointer' />
             </header>
         )
 
