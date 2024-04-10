@@ -1,9 +1,6 @@
-'use client'
+import Indicator from '@/app/lib/components/Indicator';
 
-import {useState, useEffect} from 'react';
-import Indicator from '@/app/lib/components/Indicator/Indicator';
-
-export default function Indicators() { 
+export default async function Indicators() { 
 
     return (
         <section className='flex justify-start gap-4 pb-10 lg:pb-14'>

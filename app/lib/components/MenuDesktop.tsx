@@ -1,8 +1,8 @@
 'use client'
 
 import { useAuth } from '@/app/lib/context/AuthContext';
-import Nav from "../Nav/Nav"
-import HeaderMenuDesktop from '../HeaderMenuDesktop/HeaderMenuDesktop';
+import Nav from "./Nav"
+import HeaderMenuDesktop from './HeaderMenuDesktop';
 
 export default function MenuDesktop() {
 

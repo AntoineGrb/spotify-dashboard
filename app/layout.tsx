@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Hind, Roboto, Montserrat} from "next/font/google";
 import "./globals.css";
-import ClientApplication from "@/app/lib/components/ClientApplication/ClientApplication";
+import ClientApplication from "@/app/ClientApplication";
 
 const hind = Hind({ weight: ['300', '400', '500' , '600', '700'], subsets:['latin'], variable: '--font-hind' });
 const roboto = Roboto({ weight: ['300', '400', '500', '700'], subsets:['latin'], variable: '--font-roboto' });

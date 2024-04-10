@@ -1,6 +1,5 @@
 import React from 'react';
-import { useAuth } from '../../context/AuthContext';
-import { useMediaQuery } from 'usehooks-ts';
+import { useAuth } from '../context/AuthContext';
 import { Menu } from 'lucide-react';
 import { LogOut } from 'lucide-react';
 

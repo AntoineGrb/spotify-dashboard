@@ -1,4 +1,4 @@
-import HeaderTitle from '@/app/lib/components/HeaderPageTitle/HeaderPageTitle';
+import HeaderTitle from '@/app/lib/components/HeaderPageTitle';
 
 export default function Dashboard() {  
 

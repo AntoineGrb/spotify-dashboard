@@ -2,9 +2,9 @@
 
 import React, {useState} from 'react';
 import { AuthProvider } from '@/app/lib/context/AuthContext';
-import HeaderMobile from '@/app/lib/components/HeaderMobile/HeaderMobile';
-import MenuMobile from '@/app/lib/components/MenuMobile/MenuMobile';
-import MenuDesktop from '../MenuDesktop/MenuDesktop';
+import HeaderMobile from '@/app/lib/components/HeaderMobile';
+import MenuMobile from '@/app/lib/components/MenuMobile';
+import MenuDesktop from './lib/components/MenuDesktop';
 
 export default function ClientApplication({
     children,

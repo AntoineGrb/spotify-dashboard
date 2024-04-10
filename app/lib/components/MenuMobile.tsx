@@ -1,7 +1,7 @@
 'use client'
 
 import { CircleX } from 'lucide-react';
-import Nav from '@/app/lib/components/Nav/Nav';
+import Nav from '@/app/lib/components/Nav';
 
 interface MenuMobileProps { 
     isActive: boolean;
