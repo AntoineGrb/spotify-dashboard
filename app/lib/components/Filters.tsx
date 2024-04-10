@@ -1,8 +1,10 @@
-
+'use client'
 
 interface FiltersProps { 
     selected: 'month' | 'year' | 'all-time';
 }
+
+//! onClick sur les filtres, relancer une requête
 
 export default function Filters({selected}: FiltersProps) {
     return (

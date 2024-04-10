@@ -24,6 +24,7 @@ export const getUserProfile = async () => {
     return data;
 }
 
+//! Modifier les fonctions avec des paramètres pour les filtres (month, year, all-time) et la limite (10 ou 50)
 export const getRecentlyPlayedTracks = async () => { 
 
     const cookieStore = cookies();
@@ -69,7 +70,7 @@ export const getTopArtists = async () => {
     return data;
 }
 
-export const getTopTracks= async () => { 
+export const getTopTracks = async () => { 
 
     const cookieStore = cookies();
     const accessToken = cookieStore.get('spotify_access_token');
