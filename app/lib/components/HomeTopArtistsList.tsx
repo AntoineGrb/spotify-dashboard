@@ -32,7 +32,7 @@ interface ImageProps {
 export default async function HomeRecentlyPlayedList() { 
 
     const topItems = await getTopArtists() as TopItemsResponse;
-    console.log('topItems :' , topItems);
+    // console.log('topItems :' , topItems);
 
     return (
         <>

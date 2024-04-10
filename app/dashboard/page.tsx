@@ -6,7 +6,9 @@ import HomeRecentlyPlayedList from '../lib/components/HomeRecentlyPlayedList';
 import HomeTopArtistsList from '../lib/components/HomeTopArtistsList';
 import HomeTopTracksList from '../lib/components/HomeTopTracksList';
 
-export default function Dashboard() {  
+export default function Dashboard({searchParams}: {searchParams: URLSearchParams}) {  
+
+    console.log('searchParams', searchParams)
 
     return (
         <main className='h-screen w-screen overflow-y-auto px-4 py-8 lg:px-12 lg:py-20'>
@@ -22,7 +24,6 @@ export default function Dashboard() {
             <HomeCardsList title='Top tracks'> 
                 <HomeTopTracksList />
             </HomeCardsList>
-
         </main>
     )
 }

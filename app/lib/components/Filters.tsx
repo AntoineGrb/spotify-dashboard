@@ -1,4 +1,4 @@
-'use client'
+import { updateFilters } from "../api/actions";
 
 interface FiltersProps { 
     selected: 'month' | 'year' | 'all-time';
@@ -9,6 +9,14 @@ interface FiltersProps {
 export default function Filters({selected}: FiltersProps) {
     return (
         <section className="w-full flex justify-center pb-8">
+            <form action={updateFilters}>
+                <select name="filter" id="filter">
+                    <option value="Month">Month</option>
+                    <option value="Year">Year</option>
+                    <option value="All time">All time</option>
+                </select>
+                <button type="submit"> Valider </button>
+            </form>
             <div className={`w-full flex justify-center items-center border-b-2 pb-1 ${selected === 'month' && 'border-green'}`}>
                 <p className={` cursor-pointer ${selected === 'month' && 'text-green font-semibold'}`}> Month </p>
             </div>

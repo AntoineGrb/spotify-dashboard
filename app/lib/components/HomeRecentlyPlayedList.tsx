@@ -30,7 +30,7 @@ interface ImageProps {
 export default async function HomeRecentlyPlayedList() { 
 
     const recentlyPlayed = await getRecentlyPlayedTracks() as RecentlyPlayedResponse;
-    console.log('tracks recentes :' , recentlyPlayed);
+    // console.log('tracks recentes :' , recentlyPlayed);
 
     return (
         <>
