@@ -9,30 +9,3 @@ export interface SpotifyTokenResponse {
     refresh_token: string;
     error?: string;
 }
-
-//Recently played response interfaces
-export interface RecentlyPlayedResponse {
-    items: RecentlyPlayedItemProps[];
-}
-
-interface RecentlyPlayedItemProps {
-    track: TrackProps;
-}
-
-interface TrackProps {
-    album: AlbumProps;
-    name: string;
-    artists: ArtistsProps[];
-}
-
-interface AlbumProps {
-    images: ImageProps[];
-}
-
-interface ArtistsProps {
-    name: string;
-}
-
-interface ImageProps {
-    url: string;
-}

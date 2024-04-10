@@ -1,6 +1,31 @@
 import HomeCard from "./HomeCard";
 import { getRecentlyPlayedTracks } from "../api/data";
-import { RecentlyPlayedResponse } from "@/app/lib/interfaces/interfaces";
+
+interface RecentlyPlayedResponse {
+    items: RecentlyPlayedItemProps[];
+}
+
+interface RecentlyPlayedItemProps {
+    track: TrackProps;
+}
+
+interface TrackProps {
+    album: AlbumProps;
+    name: string;
+    artists: ArtistsProps[];
+}
+
+interface AlbumProps {
+    images: ImageProps[];
+}
+
+interface ArtistsProps {
+    name: string;
+}
+
+interface ImageProps {
+    url: string;
+}
 
 export default async function HomeRecentlyPlayedList() { 
 

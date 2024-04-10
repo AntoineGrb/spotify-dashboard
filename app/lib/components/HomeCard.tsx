@@ -3,7 +3,7 @@ interface HomeCardProps {
     position: number
     imageSrc: string
     text: string
-    subText: string
+    subText?: string
 }
 
 export default function HomeCard({position, imageSrc, text, subText}: HomeCardProps) { 
