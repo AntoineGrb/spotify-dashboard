@@ -1,7 +1,7 @@
 import { serialize  } from "cookie";
 import fetch from 'node-fetch';
 import { NextApiRequest, NextApiResponse } from "next";
-import {SpotifyTokenResponse } from "@/app/lib/interfaces/interface";
+import {SpotifyTokenResponse } from "@/app/lib/interfaces/interfaces";
 
 // This API route is used to handle the callback from the Spotify login page
 

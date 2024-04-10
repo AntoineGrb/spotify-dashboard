@@ -2,7 +2,7 @@
 
 import { useAuth } from '@/app/lib/context/AuthContext';
 import Nav from "./Nav"
-import HeaderMenuDesktop from './HeaderMenuDesktop';
+import MenuDesktopHeader from './MenuDesktopHeader';
 
 export default function MenuDesktop() {
 
@@ -10,7 +10,7 @@ export default function MenuDesktop() {
 
     return (
         <section className="hidden lg:flex w-80 h-screen max-h-screen bg-gray-dark flex-col">
-            <HeaderMenuDesktop />
+            <MenuDesktopHeader />
             <div className='grow'>
                 {user && <Nav />}
             </div>
