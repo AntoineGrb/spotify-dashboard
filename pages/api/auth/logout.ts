@@ -1,5 +1,6 @@
 import { serialize } from "cookie";
 import { NextApiRequest, NextApiResponse } from "next";
+import { redirect } from 'next/navigation'
 
 
 export default function logout(req: NextApiRequest, res: NextApiResponse) { 
@@ -18,5 +19,6 @@ export default function logout(req: NextApiRequest, res: NextApiResponse) {
         }) 
     ]
     res.setHeader("Set-Cookie", cookies); // Set the cookies
-    res.redirect('/'); // Redirect the user to the home page
+    console.log('cookies supprimés');
+    res.end()
 }

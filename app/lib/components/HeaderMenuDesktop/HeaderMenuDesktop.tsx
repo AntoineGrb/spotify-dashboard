@@ -1,5 +1,4 @@
 import { useAuth } from '../../context/AuthContext';
-import Link from 'next/link';
 import { LogOut } from 'lucide-react';
 
 export default function headerMenuDesktop() {

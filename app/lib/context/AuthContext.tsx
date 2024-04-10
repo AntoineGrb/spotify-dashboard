@@ -1,7 +1,6 @@
 'use client'
 import React, { createContext, useContext, useState, useEffect } from "react";
-import Router from 'next/router';
-import { redirect } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 interface AuthContextProps { 
     user: UserProps | null;
@@ -28,6 +27,8 @@ export const useAuth = () => {
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => { 
     const [user, setUser] = useState<UserProps | null>(null);
+    const pathname = usePathname();
+    const router = useRouter();
 
     useEffect(() => {
         const verifyUser = async () => {
@@ -37,8 +38,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
             if (data.isLoggedIn) {
                 setUser(data.user);
-            } else {
-                Router.push('/');
             }
         }
         verifyUser();
@@ -47,11 +46,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const logout = async () => { 
         const response = await fetch('/api/auth/logout', {method: 'POST'});
         console.log('logout response', response)
+        console.log('pathname', pathname)
         
         if (response.ok) {
             console.log('logout success');
             setUser(null);
-            redirect('/');
+            router.push('/');
         } else {
             console.log('logout failed');
         }

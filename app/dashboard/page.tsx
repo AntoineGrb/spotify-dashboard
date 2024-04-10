@@ -2,7 +2,6 @@ import HeaderTitle from '@/app/lib/components/HeaderPageTitle/HeaderPageTitle';
 import Filters from '@/app/lib/components/Filters/Filters';
 import IndicatorsSection from '@/app/lib/components/IndicatorsSection/IndictorsSection';
 import CardsSection from '@/app/lib/components/CardsSection/CardSection';
-import { cookies } from 'next/headers';
 import { getRecentlyPlayedTracks } from '@/app/lib/api/data';
 
 export default async function Dashboard() {  
