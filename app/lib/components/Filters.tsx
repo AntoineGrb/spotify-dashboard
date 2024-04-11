@@ -1,3 +1,6 @@
+'use client'
+
+import { useRef } from "react";
 import { updateFilters } from "../actions/actions";
 
 interface FiltersProps { 
@@ -7,25 +10,39 @@ interface FiltersProps {
 //! onClick sur les filtres, relancer une requête
 
 export default function Filters({selected}: FiltersProps) {
+
+    const formRef = useRef<HTMLFormElement>(null);
+
+    const handleSelect = (selectedFilter: 'month' | 'year' | 'all-time') => { 
+        console.log(selectedFilter)
+        if (formRef.current) {
+            const input = formRef.current.querySelector('input[name="filter"]') as HTMLInputElement;
+            if (input) {
+                input.value = selectedFilter;
+                console.log('input' , input.value)
+                formRef.current.requestSubmit();
+            }
+        }
+    }
+
     return (
-        <section className="w-full flex justify-center pb-8">
-            <form action={updateFilters}>
-                <select name="filter" id="filter">
-                    <option value="month">Month</option>
-                    <option value="year">Year</option>
-                    <option value="all-time">All time</option>
-                </select>
-                <button type="submit"> Valider </button>
-            </form>
-            <div className={`w-full flex justify-center items-center border-b-2 pb-1 ${selected === 'month' && 'border-green'}`}>
-                <p className={` cursor-pointer ${selected === 'month' && 'text-green font-semibold'}`}> Month </p>
-            </div>
-            <div className={`w-full flex justify-center items-center border-b-2 pb-1 ${selected === 'year' && 'border-green'}`}>
-                <p className={` cursor-pointer ${selected === 'year' && 'text-green font-semibold'}`}> Year </p>
-            </div>
-            <div className={`w-full flex justify-center items-center border-b-2 pb-1 ${selected === 'all-time' && 'border-green'}`}>
-                <p className={` cursor-pointer ${selected === 'all-time' && 'text-green font-semibold'}`}> All time </p>
-            </div>
-        </section>
+        <>
+        <form ref={formRef} action={updateFilters}>
+            <section className="w-full flex justify-center pb-8">
+                <input type="hidden" name="filter" defaultValue={'month'} />
+                <div onClick={() => handleSelect('month')} className={`w-full flex justify-center items-center border-b-2 pb-1 ${selected === 'month' && 'border-green'}`}>
+                    <p className={` cursor-pointer ${selected === 'month' && 'text-green font-semibold'}`}> Month </p>
+                </div>
+                <div onClick={() => handleSelect('year')} className={`w-full flex justify-center items-center border-b-2 pb-1 ${selected === 'year' && 'border-green'}`}>
+                    <p className={` cursor-pointer ${selected === 'year' && 'text-green font-semibold'}`}> Year </p>
+                </div>
+                <div onClick={() => handleSelect('all-time')} className={`w-full flex justify-center items-center border-b-2 pb-1 ${selected === 'all-time' && 'border-green'}`}>
+                    <p className={` cursor-pointer ${selected === 'all-time' && 'text-green font-semibold'}`}> All time </p>
+                </div>
+                <button type="submit"> Test </button>
+            </section>
+        </form>
+        </>
+
     )
 }
