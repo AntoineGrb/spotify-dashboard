@@ -8,7 +8,7 @@ interface HomeCardProps {
 
 export default function HomeCard({position, imageSrc, text, subText}: HomeCardProps) { 
     return (
-        <article className=' w-full flex flex-col'>
+        <article className='w-24 md:w-32 lg:w-44 flex-none mr-2 cursor-grab'>
             <div 
                 className=' bg-gray-500 w-full pt-[100%] rounded-lg mb-2 relative'
                 style={{backgroundImage: `url(${imageSrc})`, backgroundSize: 'contain', backgroundPosition: 'center'}}

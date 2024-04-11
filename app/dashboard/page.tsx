@@ -17,7 +17,7 @@ export default function Dashboard({searchParams}: {searchParams: ProfileSearchPa
     return (
         <main className='h-screen w-screen overflow-y-auto px-4 py-8 lg:px-12 lg:py-20'>
             <HeaderTitle title='Dashboard' />
-            <Filters selected='year' />
+            <Filters/>
             <IndicatorsSection />
             <HomeCardsList title='Top artists'> 
                 <HomeTopArtistsList selectedFilter={selectedFilter} />

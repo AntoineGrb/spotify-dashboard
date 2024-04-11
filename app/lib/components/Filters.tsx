@@ -1,16 +1,11 @@
 'use client'
 
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import { updateFilters } from "../actions/actions";
 
-interface FiltersProps { 
-    selected: 'month' | 'year' | 'all-time';
-}
+export default function Filters() {
 
-//! onClick sur les filtres, relancer une requête
-
-export default function Filters({selected}: FiltersProps) {
-
+    const [selected, setSelected] = useState<'month' | 'year' | 'all-time'>('month');
     const formRef = useRef<HTMLFormElement>(null);
 
     const handleSelect = (selectedFilter: 'month' | 'year' | 'all-time') => { 
@@ -20,6 +15,7 @@ export default function Filters({selected}: FiltersProps) {
             if (input) {
                 input.value = selectedFilter;
                 console.log('input' , input.value)
+                setSelected(selectedFilter);
                 formRef.current.requestSubmit();
             }
         }
@@ -39,7 +35,6 @@ export default function Filters({selected}: FiltersProps) {
                 <div onClick={() => handleSelect('all-time')} className={`w-full flex justify-center items-center border-b-2 pb-1 ${selected === 'all-time' && 'border-green'}`}>
                     <p className={` cursor-pointer ${selected === 'all-time' && 'text-green font-semibold'}`}> All time </p>
                 </div>
-                <button type="submit"> Test </button>
             </section>
         </form>
         </>
