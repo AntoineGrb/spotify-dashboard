@@ -14,7 +14,7 @@ export default function headerMenuDesktop() {
             </div>
             <div className='flex gap-3 items-center'>
                 <p className=" text-xl"> { user ? user.display_name : 'Connexion requise'} </p>
-                {user && <LogOut color='white' size={18} onClick={logout} cursor={'pointer'}/>}
+                {user && <LogOut color='white' size={18} onClick={logout} cursor={'pointer'} xlinkTitle='Log out'/>}
             </div>
 
         </header>

@@ -1,3 +1,5 @@
+'use server'
+
 import { cookies } from 'next/headers';
 
 export const getUserProfile = async () => { 
@@ -46,7 +48,7 @@ export const getRecentlyPlayedTracks = async () => {
     return data;
 }
 
-export const getTopArtists = async () => { 
+export const getTopArtists = async (timeRange: string) => { 
 
     const cookieStore = cookies();
     const accessToken = cookieStore.get('spotify_access_token');
@@ -54,7 +56,11 @@ export const getTopArtists = async () => {
         throw new Error('No access token found');
     }
 
-    const response = await fetch('https://api.spotify.com/v1/me/top/artists?limit=10', {
+    timeRange === 'all-time' ? timeRange = 'long_term' : 
+    timeRange === 'year' ? timeRange = 'medium_term' :
+    timeRange = 'short_term'
+
+    const response = await fetch(`https://api.spotify.com/v1/me/top/artists?time_range=${timeRange}&limit=10`, {
         headers: {
             Authorization: `Bearer ${accessToken.value}`
         }, 
@@ -68,7 +74,7 @@ export const getTopArtists = async () => {
     return data;
 }
 
-export const getTopTracks = async () => { 
+export const getTopTracks = async (timeRange: string) => { 
 
     const cookieStore = cookies();
     const accessToken = cookieStore.get('spotify_access_token');
@@ -76,7 +82,11 @@ export const getTopTracks = async () => {
         throw new Error('No access token found');
     }
 
-    const response = await fetch('https://api.spotify.com/v1/me/top/tracks?limit=10', {
+    timeRange === 'all-time' ? timeRange = 'long_term' : 
+    timeRange === 'year' ? timeRange = 'medium_term' :
+    timeRange = 'short_term'
+
+    const response = await fetch(`https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}&limit=10`, {
         headers: {
             Authorization: `Bearer ${accessToken.value}`
         }, 

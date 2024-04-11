@@ -22,7 +22,7 @@ const HeaderMobile = ({openMenu}: HeaderMobileProps) => {
                 <p className='text-lg'> { user ? user.display_name : 'Connexion requise'} </p>
                 {user && <LogOut color='white' size={18} onClick={logout} cursor={'pointer'}/>}
             </div>
-            {user && <Menu size={24} color='white' onClick={openMenu} className=' cursor-pointer' />}
+            {user && <Menu size={24} color='white' onClick={openMenu} className=' cursor-pointer'/>}
         </header>
     )
 }

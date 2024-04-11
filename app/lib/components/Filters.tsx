@@ -1,4 +1,4 @@
-import { updateFilters } from "../api/actions";
+import { updateFilters } from "../actions/actions";
 
 interface FiltersProps { 
     selected: 'month' | 'year' | 'all-time';
@@ -11,9 +11,9 @@ export default function Filters({selected}: FiltersProps) {
         <section className="w-full flex justify-center pb-8">
             <form action={updateFilters}>
                 <select name="filter" id="filter">
-                    <option value="Month">Month</option>
-                    <option value="Year">Year</option>
-                    <option value="All time">All time</option>
+                    <option value="month">Month</option>
+                    <option value="year">Year</option>
+                    <option value="all-time">All time</option>
                 </select>
                 <button type="submit"> Valider </button>
             </form>

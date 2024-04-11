@@ -1,5 +1,5 @@
 import HomeCard from "./HomeCard";
-import { getTopTracks } from "../api/data";
+import { getTopTracks } from "../actions/data";
 
 interface TopTracksResponse {
     items: TopTracksItemProps[];
@@ -24,10 +24,9 @@ interface ImageProps {
 }
 
 
-export default async function HomeRecentlyPlayedList() { 
+export default async function HomeRecentlyPlayedList({selectedFilter}: {selectedFilter: string}) { 
 
-    const topItems = await getTopTracks() as TopTracksResponse;
-    // console.log('topItems :' , topItems);
+    const topItems = await getTopTracks(selectedFilter) as TopTracksResponse;
 
     return (
         <>

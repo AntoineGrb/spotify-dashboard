@@ -1,5 +1,5 @@
 import HomeCard from "./HomeCard";
-import { getRecentlyPlayedTracks } from "../api/data";
+import { getRecentlyPlayedTracks } from "../actions/data";
 
 interface RecentlyPlayedResponse {
     items: RecentlyPlayedItemProps[];
