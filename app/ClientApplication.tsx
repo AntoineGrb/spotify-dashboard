@@ -17,7 +17,7 @@ export default function ClientApplication({
   return (
       <>
           <AuthProvider>
-            <div id='app' className='flex flex-col lg:flex-row max-h-[100vh]'>
+            <div id='app' className='flex flex-col lg:flex-row h-[100dvh] max-h-[100vh]'>
               <HeaderMobile openMenu={() => setIsMenuMobileActive(true)} />
               <MenuMobile isActive={isMenuMobileActive} closeMenu={() => setIsMenuMobileActive(false)} />
               <MenuDesktop />

@@ -23,7 +23,7 @@
 }
 
 h1 {
-  @apply font-hind text-white-font text-4xl font-extralight;
+  @apply font-hind text-white-font text-5xl font-extralight;
 }
 
 h2 {

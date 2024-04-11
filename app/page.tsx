@@ -14,7 +14,7 @@ export default function Home() {
   }
 
   return (
-    <main className='w-full h-screen px-4 py-8 lg:px-12 lg:py-20 flex flex-col justify-center'>
+    <main className='w-full h-full px-4 py-8 lg:px-12 lg:py-20 flex flex-col justify-center'>
       <section className='flex flex-col justify-center items-center my-auto'>
         <p className='text-center pb-8'> 
           Welcome on your new Spotify Dashboard ! <br /> 
