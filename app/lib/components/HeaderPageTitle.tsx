@@ -25,8 +25,8 @@ const HeaderPageTitle = ({title}: HeaderPageTitleProps) => {
     }
 
     return (
-        <header className='flex gap-2 items-center justify-start pb-8'>
-            <div className='w-10 h-10 rounded-lg border flex justify-center items-center'>
+        <header className='flex gap-2 items-center justify-start pb-16'>
+            <div className='w-10 h-10 rounded-md border flex justify-center items-center relative top-[-2px]'>
                 {getIconWithTitle(title)}
             </div>
             <h1> {title} </h1>

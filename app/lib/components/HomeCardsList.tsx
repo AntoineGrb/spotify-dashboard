@@ -4,6 +4,7 @@ interface HomeListProps {
 }
 
 export default function HomeList({title, children}: HomeListProps) {
+
     return (
         <section className='pb-10'>
             <header className='flex justify-between items-center pb-2'>
