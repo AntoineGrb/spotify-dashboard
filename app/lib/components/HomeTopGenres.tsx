@@ -12,7 +12,7 @@ interface TopItemsItemsProps {
 
 export default async function HomeTopGenres({selectedFilter}: {selectedFilter: string}) { 
 
-    const topItems = await getTopArtists(selectedFilter, 20) as TopItemsResponse;
+    const topItems = await getTopArtists(selectedFilter, 50) as TopItemsResponse;
     const genres = topItems.items.map(item => item.genres).flat(); // Allows to create a single array from an array of arrays
     console.log(genres)
 
@@ -25,18 +25,28 @@ export default async function HomeTopGenres({selectedFilter}: {selectedFilter: s
                 result[item] = 1;
             }
         })
-        return result;
+        const sortedResult = Object.entries(result).sort((a, b) => b[1] - a[1]).slice(0,25);
+        console.log('sorted' , sortedResult)
+        return sortedResult;
     }
-    console.log(countOccurences(genres))
+    console.log('count' , countOccurences(genres))
 
     //Prepare data
-    const chartData = countOccurences(genres);
-    const labels = Object.keys(chartData);
-    const values = Object.values(chartData);
+    const chartData = countOccurences(genres)
+    const labels = chartData.map(item => item[0]);
+    const values = chartData.map(item => item[1]);
 
     return (
         <>
-            <GraphTopGenres labels={labels} values={values} />
+        <section className='pb-10'>
+            <header className='flex justify-between items-center pb-2'>
+                <h2> Favorites genres </h2>
+            </header>
+            <section className="lg:w-1/2">
+                <GraphTopGenres labels={labels} values={values} />
+            </section>
+        </section>
+            
         </>
     )
 }

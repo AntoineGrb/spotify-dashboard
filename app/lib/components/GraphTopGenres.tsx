@@ -2,17 +2,27 @@
 
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import { callback } from 'chart.js/helpers';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const options = {
+    scales: {
+        y: {
+            ticks: {
+                stepSize: 1,
+                callback: function(value: any) {
+                    return Math.floor(value);
+                }
+            },
+        },
+    },
     plugins: {
         legend: {
           display: false,
         },
         title: {
-          display: true,
-          text: 'Nombre d\'occurrences par item',
+          display: false,
         },
       },
 }
@@ -22,10 +32,10 @@ export default function GraphTopGenres({labels, values}: {labels: string[], valu
         labels, 
         datasets: [
           {
-            label: 'Nombre d\'occurrences',
+            label: 'Genres les plus écoutés',
             data: values,
-            backgroundColor: 'rgba(75,192,192,0.2)',
-            borderColor: 'rgba(75,192,192,1)',
+            backgroundColor: '#1DB954',
+            borderColor: 'none',
             borderWidth: 1,
           },
         ],
