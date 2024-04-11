@@ -5,6 +5,7 @@ import HomeCardsList from '@/app/lib/components/HomeCardsList';
 import HomeRecentlyPlayedList from '../lib/components/HomeRecentlyPlayedList';
 import HomeTopArtistsList from '../lib/components/HomeTopArtistsList';
 import HomeTopTracksList from '../lib/components/HomeTopTracksList';
+import HomeTopGenres from '../lib/components/HomeTopGenres';
 
 interface ProfileSearchParamsParops {
     [key: string]: string;
@@ -28,6 +29,7 @@ export default function Dashboard({searchParams}: {searchParams: ProfileSearchPa
             <HomeCardsList title='Recently played'> 
                 <HomeRecentlyPlayedList />
             </HomeCardsList>
+            <HomeTopGenres selectedFilter={selectedFilter} />
         </main>
     )
 }

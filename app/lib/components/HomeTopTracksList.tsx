@@ -24,9 +24,9 @@ interface ImageProps {
 }
 
 
-export default async function HomeRecentlyPlayedList({selectedFilter}: {selectedFilter: string}) { 
+export default async function HomeTopTracksList({selectedFilter}: {selectedFilter: string}) { 
 
-    const topItems = await getTopTracks(selectedFilter) as TopTracksResponse;
+    const topItems = await getTopTracks(selectedFilter, 10) as TopTracksResponse;
 
     return (
         <>

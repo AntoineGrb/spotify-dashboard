@@ -10,28 +10,14 @@ interface TopItemsItemsProps {
     images: ImageProps[];
 }
 
-interface TrackObjectProps { 
-    name: string;
-    album: AlbumProps;
-    artists: ArtistsProps[];
-}
-
-interface AlbumProps {
-    images: ImageProps[];
-}
-
-interface ArtistsProps {
-    name: string;
-}
-
 interface ImageProps {
     url: string;
 }
 
 
-export default async function HomeRecentlyPlayedList({selectedFilter}: {selectedFilter: string}) { 
+export default async function HomeTopArtistsList({selectedFilter}: {selectedFilter: string}) { 
 
-    const topItems = await getTopArtists(selectedFilter) as TopItemsResponse;
+    const topItems = await getTopArtists(selectedFilter, 10) as TopItemsResponse;
 
     return (
         <>
