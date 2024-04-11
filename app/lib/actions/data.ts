@@ -40,7 +40,6 @@ export const getRecentlyPlayedTracks = async (limit: number) => {
 
     if (!response.ok) {
         throw new Error('Failed to fetch user data');
-        console.error('Failed to fetch user data');
     }
 
     const data = await response.json();
@@ -90,6 +89,9 @@ export const getTopTracks = async (timeRange: string, limit: number) => {
             Authorization: `Bearer ${accessToken.value}`
         }, 
     })
+
+    //Add an interval to simulate a slow network
+    // await new Promise(resolve => setTimeout(resolve, 2000));
 
     if (!response.ok) {
         throw new Error('Failed to fetch user data');

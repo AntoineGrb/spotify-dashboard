@@ -30,7 +30,7 @@ export default async function HomeTopTracksList({selectedFilter}: {selectedFilte
 
     return (
         <>
-            {topItems.items.map((item, index: number) => (
+            {topItems && topItems.items.map((item, index: number) => (
                 <HomeCard key={index} position={index + 1} imageSrc={item.album.images[1].url} text={item.name} subText={item.artists[0].name} />
             ))}
         </>

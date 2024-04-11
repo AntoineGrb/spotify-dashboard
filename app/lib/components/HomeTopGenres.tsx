@@ -14,8 +14,8 @@ export default async function HomeTopGenres({selectedFilter}: {selectedFilter: s
 
     const topItems = await getTopArtists(selectedFilter, 50) as TopItemsResponse;
     const genres = topItems.items.map(item => item.genres).flat(); // Allows to create a single array from an array of arrays
-    console.log(genres)
-
+    //! Passer les datas dans le composant du graphique et gérer la donnée dedans
+    //Prepare data
     const countOccurences = (arr: string[]) => {
         let result: { [key: string]: number } = {};
         arr.forEach(item => {
@@ -26,12 +26,9 @@ export default async function HomeTopGenres({selectedFilter}: {selectedFilter: s
             }
         })
         const sortedResult = Object.entries(result).sort((a, b) => b[1] - a[1]).slice(0,25);
-        console.log('sorted' , sortedResult)
         return sortedResult;
     }
-    console.log('count' , countOccurences(genres))
 
-    //Prepare data
     const chartData = countOccurences(genres)
     const labels = chartData.map(item => item[0]);
     const values = chartData.map(item => item[1]);

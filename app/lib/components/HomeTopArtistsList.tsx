@@ -21,7 +21,7 @@ export default async function HomeTopArtistsList({selectedFilter}: {selectedFilt
 
     return (
         <>
-            {topItems.items.map((item, index: number) => (
+            {topItems && topItems.items.map((item, index: number) => (
                 <HomeCard key={index} position={index + 1} imageSrc={item.images[1].url} text={item.name} />
             ))}
         </>

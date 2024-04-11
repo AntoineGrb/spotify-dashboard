@@ -1,4 +1,3 @@
-import { NextApiRequest, NextApiResponse } from "next";
 
 //API routes interfaces
 export interface SpotifyTokenResponse { 

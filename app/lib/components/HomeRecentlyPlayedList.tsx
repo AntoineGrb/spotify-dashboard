@@ -33,7 +33,7 @@ export default async function HomeRecentlyPlayedList() {
 
     return (
         <>
-            {recentlyPlayed.items.map((item, index: number) => (
+            {recentlyPlayed && recentlyPlayed.items.map((item, index: number) => (
                 <HomeCard key={index} position={index + 1} imageSrc={item.track.album.images[1].url} text={item.track.name} subText={item.track.artists[0].name} />
             ))}
         </>
