@@ -37,7 +37,7 @@ export default async function CardsGrid() {
 
     //! Variabiliser avec les filtres
     //Get top tracks
-    const topTracks = await getTopTracks('all-time', 2) as TopTracksResponse;
+    const topTracks = await getTopTracks('all-time', 50) as TopTracksResponse;
 
     //Get tracks ids to get audio features of each track
     const ids = topTracks.items.map(track => track.id).join(',');
@@ -53,7 +53,6 @@ export default async function CardsGrid() {
             }
         })
     }
-    console.log(topTracksWithAudioFeatures);
 
     return (
         <section className='grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>

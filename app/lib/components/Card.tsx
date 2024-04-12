@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import CardFooterInfos from './CardFooterInfos';
 import CardHiddenInfos from './CardHiddenInfos';
 
@@ -17,25 +17,56 @@ interface CardProps {
 }
 
 export default function Card({position, name, imageSrc, artist, duration, previewUrl, danceability, energy, tempo}: CardProps) {
+    
+    const [isInfosShowed, setisInfosShowed] = useState(false);
+    const [isPlayling, setIsPlaying] = useState(false);
 
-    const [isActive, setIsActive] = useState(true);
+    const audioRef = useRef<HTMLAudioElement>(new Audio(previewUrl));
+
+    //Handle showing/hiding hidden infos
+    const handleMouseEnter = () => { 
+        setisInfosShowed(true);
+    }
+
+    const handleMouseLeave = () => { 
+        setisInfosShowed(false);
+        pauseAudio();
+    }
+
+    //Handle audio play/pause
+    const playAudio = () => {
+        if (audioRef.current) {
+            audioRef.current.play();
+        }
+        setIsPlaying(true);
+    }
+
+    const pauseAudio = () => { 
+        if (audioRef.current) {
+            audioRef.current.pause();
+        }
+        setIsPlaying(false);
+    }
 
     return (
         <article 
             className='w-full pt-[100%] mb-2 relative rounded-md'
             style={{backgroundImage: `url(${imageSrc})`, backgroundSize: 'contain', backgroundPosition: 'center'}}
-            onClick={() => setIsActive(!isActive)}
-            onMouseEnter={() => setIsActive(true)}
-            onMouseLeave={() => setIsActive(false)}
+            // onClick={() => setisInfosShowed(!isInfosShowed)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
         >
             <CardFooterInfos position={position} name={name} artist={artist} />
-            {isActive && 
+            {isInfosShowed && 
                 <CardHiddenInfos
                     duration={duration}
                     previewUrl={previewUrl}
                     danceability={danceability}
                     energy={energy}
-                    tempo={tempo}     
+                    tempo={tempo}  
+                    isPlayling={isPlayling}
+                    playAudio={playAudio}
+                    pauseAudio={pauseAudio}   
                 />
             }
         </article>
