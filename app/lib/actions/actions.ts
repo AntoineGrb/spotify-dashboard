@@ -3,7 +3,8 @@
 import { redirect } from 'next/navigation';
 
 //Handle the form data to update the filters and reload data with the new filter
-export const updateFilters = async (formData: FormData) => { 
+export const updateFilters = async (formData: FormData) => {
+    // console.log('string', string) 
     const selectedFilter = formData.get('filter');
 
     if (selectedFilter === null) {

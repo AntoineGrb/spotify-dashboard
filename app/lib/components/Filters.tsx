@@ -9,12 +9,11 @@ export default function Filters() {
     const formRef = useRef<HTMLFormElement>(null);
 
     const handleSelect = (selectedFilter: 'month' | 'year' | 'all-time') => { 
-        console.log(selectedFilter)
+
         if (formRef.current) {
             const input = formRef.current.querySelector('input[name="filter"]') as HTMLInputElement;
             if (input) {
                 input.value = selectedFilter;
-                console.log('input' , input.value)
                 setSelected(selectedFilter);
                 formRef.current.requestSubmit();
             }

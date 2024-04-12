@@ -90,9 +90,6 @@ export const getTopTracks = async (timeRange: string, limit: number) => {
         }, 
     })
 
-    //Add an interval to simulate a slow network
-    // await new Promise(resolve => setTimeout(resolve, 2000));
-
     if (!response.ok) {
         throw new Error('Failed to fetch user data');
     }

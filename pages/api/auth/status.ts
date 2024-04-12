@@ -3,10 +3,9 @@ import fetch from 'node-fetch';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const accessToken = req.cookies.spotify_access_token;
-    console.log('access token' , accessToken)
 
     if (!accessToken) {
-        console.log('no access token')
+        console.error('no access token')
         return res.status(401).json({ isLoggedIn: false });
     }
 

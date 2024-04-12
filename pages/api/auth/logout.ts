@@ -19,6 +19,5 @@ export default function logout(req: NextApiRequest, res: NextApiResponse) {
         }) 
     ]
     res.setHeader("Set-Cookie", cookies); // Set the cookies
-    console.log('cookies supprimés');
     res.end()
 }

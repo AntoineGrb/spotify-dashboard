@@ -1,11 +1,16 @@
 import HeaderTitle from '@/app/lib/components/HeaderPageTitle';
+import Filters from '../lib/components/Filters';
+import CardsGrid from '../lib/components/CardsGrid';
 
-export default function Dashboard() {  
+export default function TopTracks() {  
+
+    //! Paramétrer les filtres pour ne pas renvoyer vers le dashboard
 
     return (
         <main className='w-full h-screen overflow-y-auto px-4 py-8 lg:px-12 lg:py-20'>
             <HeaderTitle title='Top tracks' />
-            <p> Ajouter playlist </p>
+            <Filters />
+            <CardsGrid />
         </main>
     )
 }
