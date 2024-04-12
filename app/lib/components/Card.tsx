@@ -57,7 +57,6 @@ export default function Card({position, name, imageSrc, artist, duration, previe
             onMouseLeave={handleMouseLeave}
         >
             <CardFooterInfos position={position} name={name} artist={artist} />
-            {isInfosShowed && 
                 <CardHiddenInfos
                     duration={duration}
                     previewUrl={previewUrl}
@@ -66,9 +65,9 @@ export default function Card({position, name, imageSrc, artist, duration, previe
                     tempo={tempo}  
                     isPlayling={isPlayling}
                     playAudio={playAudio}
-                    pauseAudio={pauseAudio}   
+                    pauseAudio={pauseAudio}
+                    isVisible={isInfosShowed}   
                 />
-            }
         </article>
     )
 }
