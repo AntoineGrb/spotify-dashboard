@@ -34,7 +34,7 @@ export default function GraphTopGenres({labels, values}: {labels: string[], valu
           {
             label: 'Genres les plus écoutés',
             data: values,
-            backgroundColor: '#1DB954',
+            backgroundColor: '#22c55e',
             borderColor: 'none',
             borderWidth: 1,
           },

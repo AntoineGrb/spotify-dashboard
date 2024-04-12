@@ -11,7 +11,7 @@ export default function HomeList({title, link, children}: HomeListProps) {
     return (
         <section className='pb-10'>
             <header className='flex justify-between items-center pb-2'>
-                <h2> {title} </h2>
+                <h2 className='text-3xl'> {title} </h2>
                 <Link href={link}>
                     <p className='text-sm underline underline-offset-2 cursor-pointer'> See more </p>
                 </Link>

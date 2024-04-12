@@ -9,7 +9,7 @@ export default function MenuDesktop() {
     const {user} = useAuth();
 
     return (
-        <section className="hidden lg:flex lg:flex-col w-[380px] h-screen max-h-screen bg-gray-dark ">
+        <section className="hidden lg:flex lg:flex-col w-[380px] h-screen max-h-screen bg-stone-900 ">
             <MenuDesktopHeader />
             <div className='w-full grow'>
                 {user && <Nav />}

@@ -20,7 +20,7 @@ export default function RootLayout({
 
   return (
     <html lang="fr">
-      <body className={` bg-black ${hind.variable} ${roboto.variable} ${montserrat.variable}`}>
+      <body className={` bg-stone-950 ${hind.variable} ${roboto.variable} ${montserrat.variable}`}>
         <ClientApplication>
           {children}
         </ClientApplication>

@@ -37,7 +37,7 @@ export default async function HomeTopGenres({selectedFilter}: {selectedFilter: s
         <>
         <section className='pb-10'>
             <header className='flex justify-between items-center pb-2'>
-                <h2> Favorites genres </h2>
+                <h2 className="text-3xl"> Favorites genres </h2>
             </header>
             <section className="lg:w-1/2">
                 <GraphTopGenres labels={labels} values={values} />

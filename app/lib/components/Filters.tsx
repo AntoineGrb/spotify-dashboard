@@ -27,16 +27,25 @@ export default function Filters() {
     return (
         <>
         <form ref={formRef} action={updateFilters}>
-            <section className="w-full flex justify-center pb-8">
+            <section className="w-full flex justify-center pb-16">
                 <input type="hidden" name={`filter-${filterName}`} defaultValue={'month'} />
-                <div onClick={() => handleSelect('month')} className={`w-full flex justify-center items-center border-b-2 pb-1 ${selected === 'month' && 'border-green'}`}>
-                    <p className={` cursor-pointer ${selected === 'month' && 'text-green font-semibold'}`}> Month </p>
+                <div 
+                    onClick={() => handleSelect('month')} 
+                    className={`w-full flex justify-center items-center border-b-2 pb-1 ${selected === 'month' && 'border-green-500'}`}
+                >
+                    <p className={` cursor-pointer ${selected === 'month' && 'text-green-500 font-semibold'}`}> Month </p>
                 </div>
-                <div onClick={() => handleSelect('year')} className={`w-full flex justify-center items-center border-b-2 pb-1 ${selected === 'year' && 'border-green'}`}>
-                    <p className={` cursor-pointer ${selected === 'year' && 'text-green font-semibold'}`}> Year </p>
+                <div 
+                    onClick={() => handleSelect('year')} 
+                    className={`w-full flex justify-center items-center border-b-2 pb-1 ${selected === 'year' && 'border-green-500'}`}
+                >
+                    <p className={` cursor-pointer ${selected === 'year' && 'text-green-500 font-semibold'}`}> Year </p>
                 </div>
-                <div onClick={() => handleSelect('all-time')} className={`w-full flex justify-center items-center border-b-2 pb-1 ${selected === 'all-time' && 'border-green'}`}>
-                    <p className={` cursor-pointer ${selected === 'all-time' && 'text-green font-semibold'}`}> All time </p>
+                <div 
+                    onClick={() => handleSelect('all-time')} 
+                    className={`w-full flex justify-center items-center border-b-2 pb-1 ${selected === 'all-time' && 'border-green-500'}`}
+                >
+                    <p className={` cursor-pointer ${selected === 'all-time' && 'text-green-500 font-semibold'}`}> All time </p>
                 </div>
             </section>
         </form>

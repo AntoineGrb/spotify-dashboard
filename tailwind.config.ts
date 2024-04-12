@@ -20,7 +20,6 @@ const config: Config = {
         montserrat: ['var(--font-montserrat)'],
       },
       colors:{
-        'green': '#1DB954',
         'black': '#191414',
         'gray-dark': '#212121',
         'gray-mid': '#353635 ',

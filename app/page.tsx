@@ -20,7 +20,7 @@ export default function Home() {
           Welcome on your new Spotify Dashboard ! <br /> 
           Get statistics about your favorite artists, tracks and playlists.
         </p>
-        <button className=' w-36 py-3 mb-8 rounded-3xl bg-gray-mid hover:bg-gray-light text-white'>
+        <button className=' w-36 py-3 mb-8 rounded-3xl bg-green-700 hover:bg-green-800 text-white'>
           <Link href={'api/auth/login'}>LOGIN</Link>
         </button>
         <small className='text-center text-white'>
