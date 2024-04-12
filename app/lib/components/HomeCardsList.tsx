@@ -1,15 +1,20 @@
+import Link from 'next/link'
+
 interface HomeListProps {
     title: string,
-    children: React.ReactNode
+    children: React.ReactNode,
+    link: string
 }
 
-export default function HomeList({title, children}: HomeListProps) {
+export default function HomeList({title, link, children}: HomeListProps) {
 
     return (
         <section className='pb-10'>
             <header className='flex justify-between items-center pb-2'>
                 <h2> {title} </h2>
-                <p className='text-sm underline underline-offset-2 cursor-pointer'> See more </p>
+                <Link href={link}>
+                    <p className='text-sm underline underline-offset-2 cursor-pointer'> See more </p>
+                </Link>
             </header>
             <section className='flex overflow-x-auto py-2' style={{scrollbarWidth: 'none'}}>
                 { children }

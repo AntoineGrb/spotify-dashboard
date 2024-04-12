@@ -18,13 +18,13 @@ export default function Dashboard({searchParams}: {searchParams: ProfileSearchPa
         <main className='h-screen w-screen overflow-y-auto px-4 py-8 lg:px-12 lg:py-20'>
             <HeaderPageTitle title='Dashboard' />
             <Filters/>
-            <HomeCardsList title='Top artists'> 
+            <HomeCardsList title='Top artists' link='/top-artists'> 
                 <HomeTopArtistsList selectedFilter={selectedFilter} />
             </HomeCardsList>
-            <HomeCardsList title='Top tracks'> 
+            <HomeCardsList title='Top tracks' link='/top-tracks'> 
                 <HomeTopTracksList selectedFilter={selectedFilter} />
             </HomeCardsList>
-            <HomeCardsList title='Recently played'> 
+            <HomeCardsList title='Recently played' link='/recently-played'> 
                 <HomeRecentlyPlayedList />
             </HomeCardsList>
             <HomeTopGenres selectedFilter={selectedFilter} />

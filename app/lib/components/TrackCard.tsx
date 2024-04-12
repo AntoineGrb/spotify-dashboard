@@ -1,10 +1,10 @@
 'use client'
 
 import { useState, useRef } from 'react';
-import CardFooterInfos from './CardFooterInfos';
-import CardHiddenInfos from './CardHiddenInfos';
+import TrackCardFooterInfos from './TrackCardFooterInfos';
+import TrackCardHiddenInfos from './TrackCardHiddenInfos';
 
-interface CardProps { 
+interface TrackCardProps { 
     name: string;
     imageSrc: string;
     artist: string;
@@ -16,7 +16,7 @@ interface CardProps {
     tempo: number;
 }
 
-export default function Card({position, name, imageSrc, artist, duration, previewUrl, danceability, energy, tempo}: CardProps) {
+export default function TrackCard({position, name, imageSrc, artist, duration, previewUrl, danceability, energy, tempo}: TrackCardProps) {
     
     const [isInfosShowed, setisInfosShowed] = useState(false);
     const [isPlayling, setIsPlaying] = useState(false);
@@ -56,8 +56,8 @@ export default function Card({position, name, imageSrc, artist, duration, previe
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <CardFooterInfos position={position} name={name} artist={artist} />
-                <CardHiddenInfos
+            <TrackCardFooterInfos position={position} name={name} artist={artist} />
+                <TrackCardHiddenInfos
                     duration={duration}
                     previewUrl={previewUrl}
                     danceability={danceability}

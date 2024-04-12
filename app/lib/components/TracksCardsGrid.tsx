@@ -1,6 +1,5 @@
-import Card from './Card';
+import TrackCard from './TrackCard';
 import { getTopTracks, getAudioFeatures } from '../actions/data';
-import TopTracks from '@/app/top-tracks/page';
 
 interface TopTracksResponse {
     items: TopTracksItemProps[];
@@ -27,13 +26,7 @@ interface ImageProps {
     url: string;
 }
 
-interface AudioFeaturesProps { 
-    danceability: number;
-    energy: number;
-    tempo: number;
-}
-
-export default async function CardsGrid() {
+export default async function TopTracksGrid() {
 
     //! Variabiliser avec les filtres
     //Get top tracks
@@ -57,7 +50,7 @@ export default async function CardsGrid() {
     return (
         <section className='grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
             {topTracksWithAudioFeatures && topTracksWithAudioFeatures.map((track, index) => (
-                <Card 
+                <TrackCard 
                     key={index} 
                     position={index + 1} 
                     name={track.name}
