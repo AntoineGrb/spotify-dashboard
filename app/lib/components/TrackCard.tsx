@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react';
+import { useMediaQuery } from 'usehooks-ts';
 import TrackCardFooterInfos from './TrackCardFooterInfos';
 import TrackCardHiddenInfos from './TrackCardHiddenInfos';
 
@@ -21,7 +22,10 @@ export default function TrackCard({position, name, imageSrc, artist, duration, p
     const [isInfosShowed, setisInfosShowed] = useState(false);
     const [isPlayling, setIsPlaying] = useState(false);
 
+    const cardRef = useRef<HTMLDivElement>(null);
     const audioRef = useRef<HTMLAudioElement>(new Audio(previewUrl));
+
+    const isPhone = useMediaQuery('(max-width: 768px)');
 
     //Set audio src when previewUrl changes because user select another filter
     useEffect(() => {
@@ -29,6 +33,25 @@ export default function TrackCard({position, name, imageSrc, artist, duration, p
             audioRef.current.src = previewUrl;
         }
     }, [previewUrl])
+
+    //Pause audio et hide infos when user leaves the card
+    useEffect(() => { 
+        function handleOutsideClick(e: MouseEvent) { 
+            if (cardRef.current && !cardRef.current.contains(e.target as Node)) {
+                setisInfosShowed(false);
+                pauseAudio();
+            }
+        }
+
+        if (isInfosShowed) {
+            document.addEventListener('mousedown', handleOutsideClick);
+        }
+
+        return () => { 
+            document.removeEventListener('mousedown', handleOutsideClick);
+        }
+
+    }, [isInfosShowed])
 
     //Handle showing/hiding hidden infos
     const handleMouseEnter = () => { 
@@ -38,6 +61,13 @@ export default function TrackCard({position, name, imageSrc, artist, duration, p
     const handleMouseLeave = () => { 
         setisInfosShowed(false);
         pauseAudio();
+    }
+    
+    const handleClick = () => { 
+        //Only when user is on a phone, because on desktop is handled by mouse enter/leave
+        if (isPhone) {
+            setisInfosShowed(true);
+        }
     }
 
     //Handle audio play/pause
@@ -57,9 +87,10 @@ export default function TrackCard({position, name, imageSrc, artist, duration, p
 
     return (
         <article 
+            ref={cardRef}
             className='w-full pt-[100%] mb-2 relative rounded-md'
             style={{backgroundImage: `url(${imageSrc})`, backgroundSize: 'contain', backgroundPosition: 'center'}}
-            // onClick={() => setisInfosShowed(!isInfosShowed)}
+            onClick={handleClick}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
