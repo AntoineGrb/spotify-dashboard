@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import TrackCardFooterInfos from './TrackCardFooterInfos';
 import TrackCardHiddenInfos from './TrackCardHiddenInfos';
 
@@ -22,6 +22,13 @@ export default function TrackCard({position, name, imageSrc, artist, duration, p
     const [isPlayling, setIsPlaying] = useState(false);
 
     const audioRef = useRef<HTMLAudioElement>(new Audio(previewUrl));
+
+    //Set audio src when previewUrl changes because user select another filter
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.src = previewUrl;
+        }
+    }, [previewUrl])
 
     //Handle showing/hiding hidden infos
     const handleMouseEnter = () => { 
