@@ -1,3 +1,4 @@
+import { SearchParamsProps } from '../lib/interfaces/interfaces';
 import HeaderTitle from '@/app/lib/components/HeaderPageTitle';
 import Filters from '../lib/components/Filters';
 import ArtistCard from '@/app/lib/components/ArtistCard';
@@ -16,10 +17,11 @@ interface ImageProps {
     url: string;
 }
 
-export default async function TopArtistsPage() {  
+export default async function TopArtistsPage({searchParams}: {searchParams: SearchParamsProps}) {  
 
-    //! Paramétrer les filtres pour ne pas renvoyer vers le dashboard
-    const topArtists = await getTopArtists('all-time', 50) as TopItemsResponse;
+    const selectedFilter = searchParams.filter || 'month';
+    
+    const topArtists = await getTopArtists(selectedFilter, 50) as TopItemsResponse;
 
     return (
         <main className='w-full h-screen overflow-y-auto px-4 py-8 lg:px-12 lg:py-20'>

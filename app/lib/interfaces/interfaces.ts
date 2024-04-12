@@ -8,3 +8,7 @@ export interface SpotifyTokenResponse {
     refresh_token: string;
     error?: string;
 }
+
+export interface SearchParamsProps {
+    [key: string]: string;
+}

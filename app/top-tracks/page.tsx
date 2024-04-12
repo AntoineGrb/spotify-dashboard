@@ -1,3 +1,4 @@
+import { SearchParamsProps } from '../lib/interfaces/interfaces';
 import HeaderTitle from '@/app/lib/components/HeaderPageTitle';
 import Filters from '../lib/components/Filters';
 import TrackCard from '@/app/lib/components/TrackCard';
@@ -28,12 +29,12 @@ interface ImageProps {
     url: string;
 }
 
-export default async function TopTracksPage() {  
+export default async function TopTracksPage({searchParams}: {searchParams: SearchParamsProps}) {  
 
-    //! Variabiliser avec les filtres
+    const selectedFilter = searchParams.filter || 'month';
+
     //Get top tracks
-    const topTracks = await getTopTracks('all-time', 50) as TopTracksResponse;
-    console.log(topTracks)
+    const topTracks = await getTopTracks(selectedFilter, 50) as TopTracksResponse;
 
     //Get tracks ids to get audio features of each track
     const ids = topTracks.items.map(track => track.id).join(',');

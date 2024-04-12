@@ -6,11 +6,11 @@ import HomeTopArtistsList from '../lib/components/HomeTopArtistsList';
 import HomeTopTracksList from '../lib/components/HomeTopTracksList';
 import HomeTopGenres from '../lib/components/HomeTopGenres';
 
-interface ProfileSearchParamsParops {
+interface SearchParamsParops {
     [key: string]: string;
 }
 
-export default function DashboardPage({searchParams}: {searchParams: ProfileSearchParamsParops}) {  
+export default function DashboardPage({searchParams}: {searchParams: SearchParamsParops}) {  
 
     const selectedFilter = searchParams.filter || 'month';
 

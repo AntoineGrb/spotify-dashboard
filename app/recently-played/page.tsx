@@ -1,3 +1,4 @@
+import { SearchParamsProps } from '../lib/interfaces/interfaces';
 import HeaderTitle from '@/app/lib/components/HeaderPageTitle';
 import Filters from '../lib/components/Filters';
 import TrackCard from '@/app/lib/components/TrackCard';
@@ -32,9 +33,8 @@ interface ImageProps {
     url: string;
 }
 
-export default async function RecentlyPlayedTracks() {  
+export default async function RecentlyPlayedTracks({searchParams}: {searchParams: SearchParamsProps}) {  
 
-    //! Variabiliser avec les filtres
     //Get top tracks
     const recentlyPlayedTracks = await getRecentlyPlayedTracks(50) as RecentlyPlayedResponse;
 
@@ -55,8 +55,7 @@ export default async function RecentlyPlayedTracks() {
 
     return (
         <main className='w-full h-screen overflow-y-auto px-4 py-8 lg:px-12 lg:py-20'>
-            <HeaderTitle title='Top tracks' />
-            <Filters />
+            <HeaderTitle title='Recently played tracks' />
             <section className='grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
             {recentlyPlayedTracksWithAudioFeatures && recentlyPlayedTracksWithAudioFeatures.map((track, index) => (
                 <TrackCard 
