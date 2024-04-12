@@ -10,7 +10,7 @@ interface ProfileSearchParamsParops {
     [key: string]: string;
 }
 
-export default function Dashboard({searchParams}: {searchParams: ProfileSearchParamsParops}) {  
+export default function DashboardPage({searchParams}: {searchParams: ProfileSearchParamsParops}) {  
 
     const selectedFilter = searchParams.filter || 'month';
 
