@@ -1,5 +1,5 @@
 import HeaderPageTitle from "@/app/lib/components/HeaderPageTitle";
-import { getPlaylistTracks, getAudioFeatures } from "@/app/lib/actions/data";
+import { getPlaylistTracks, getPlaylist, getAudioFeatures } from "@/app/lib/actions/data";
 import TrackCard from "@/app/lib/components/TrackCard";
 
 interface SpotifyApiResponseProps { 
@@ -33,10 +33,13 @@ interface ImageProps {
 
 export default async function Playlist({params}: {params: {playlistId: string}}) {
 
-    const playlist = await getPlaylistTracks(params.playlistId) as SpotifyApiResponseProps;
+    const [playlistTracks, playlistInfos] = await Promise.all([
+        getPlaylistTracks(params.playlistId) as Promise<SpotifyApiResponseProps>,
+        getPlaylist(params.playlistId) as Promise<any> //! Créer une interface pour cette réponse 
+    ])
 
     //Get tracks ids to get audio features of each track
-    const ids = playlist.items.map(track => track.track.id).join(',');
+    const ids = playlistTracks.items.map(track => track.track.id).join(',');
     const tracksAudioFeatures = await getAudioFeatures(ids);
 
     const audioFeaturesMap = new Map<string, any>();
@@ -46,7 +49,7 @@ export default async function Playlist({params}: {params: {playlistId: string}})
         }
     })
 
-    const tracksWithAudioFeatures = playlist.items.filter(item => audioFeaturesMap.has(item.track.id)).map(item => { 
+    const tracksWithAudioFeatures = playlistTracks.items.filter(item => audioFeaturesMap.has(item.track.id)).map(item => { 
         return {
             ...item,
             audio_features: audioFeaturesMap.get(item.track.id)
@@ -57,7 +60,15 @@ export default async function Playlist({params}: {params: {playlistId: string}})
 
     return (
         <main className='w-full h-screen overflow-y-auto px-4 py-8 lg:px-12 lg:py-20'>
-            <HeaderPageTitle title='Playlists' />
+            <header className='flex gap-2 items-center justify-start pb-16'>
+                <div className='flex items-center gap-4 justify-between w-[70px] h-[70px] lg:w-[100px] lg:h-[100px]' >
+                    {playlistInfos.images && <img src={playlistInfos.images[0].url} alt={playlistInfos.name} />}
+                </div>
+                <div className='flex flex-col gap-1'>
+                    <h2 className='text-lg lg:text-2xl font-bold text-white'>{playlistInfos.name}</h2>
+                    <p className='text-base lg:text-lg text-gray-500'>{playlistInfos.owner.display_name} | {playlistInfos.tracks.total} tracks</p>
+                </div>
+            </header>
             <section className='grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
             {tracksWithAudioFeatures && tracksWithAudioFeatures.map((track, index) => (
                 <TrackCard 

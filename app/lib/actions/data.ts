@@ -142,6 +142,28 @@ export const getUserPlaylists = async () => {
     return data;
 }
 
+export const getPlaylist = async (playlistId: string) => { 
+
+    const cookieStore = cookies();
+    const accessToken = cookieStore.get('spotify_access_token');
+    if (!accessToken) { 
+        throw new Error('No access token found');
+    }
+
+    const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
+        headers: {
+            Authorization: `Bearer ${accessToken.value}`
+        }, 
+    })
+
+    if (!response.ok) {
+        throw new Error('Failed to fetch user data');
+    }
+
+    const data = await response.json();
+    return data;
+}
+
 export const getPlaylistTracks = async (playlistId: string) => { 
 
     const cookieStore = cookies();
