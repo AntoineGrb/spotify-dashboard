@@ -23,7 +23,7 @@ export default function CardHiddenInfos({duration, danceability, energy, tempo, 
     const convertedDanceability = Math.round(danceability * 100);
 
     return (
-        <div className="absolute bottom-[-1px] w-full h-full top-0 p-2 lg:px-4 flex flex-col justify-end bg-stone-950/95 rounded-md z-10"
+        <div className="absolute bottom-[-1px] w-full h-full top-0 p-2 lg:px-4 flex flex-col justify-end bg-stone-900/95 rounded-md z-10"
         style={{opacity: isVisible ? 1 : 0,
             visibility: isVisible ? 'visible' : 'hidden',
             transition: 'opacity 200ms ease-out, visibility 200ms ease-out',}}>
