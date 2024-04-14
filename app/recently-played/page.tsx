@@ -1,6 +1,4 @@
-import { SearchParamsProps } from '../lib/interfaces/interfaces';
 import HeaderTitle from '@/app/lib/components/HeaderPageTitle';
-import Filters from '../lib/components/Filters';
 import TrackCard from '@/app/lib/components/TrackCard';
 import { getRecentlyPlayedTracks , getAudioFeatures } from '@/app/lib/actions/data';
 
@@ -33,7 +31,7 @@ interface ImageProps {
     url: string;
 }
 
-export default async function RecentlyPlayedTracks({searchParams}: {searchParams: SearchParamsProps}) {  
+export default async function RecentlyPlayedTracks() {  
 
     //Get top tracks
     const recentlyPlayedTracks = await getRecentlyPlayedTracks(50) as RecentlyPlayedResponse;
@@ -71,7 +69,7 @@ export default async function RecentlyPlayedTracks({searchParams}: {searchParams
                     tempo={track.audio_features.tempo}
                 />
             ))}
-        </section>
+            </section>
         </main>
     )
 }

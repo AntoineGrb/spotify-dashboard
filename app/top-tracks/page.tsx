@@ -70,7 +70,7 @@ export default async function TopTracksPage({searchParams}: {searchParams: Searc
                     tempo={track.audio_features.tempo}
                 />
             ))}
-        </section>
+            </section>
         </main>
     )
 }
