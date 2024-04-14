@@ -33,31 +33,27 @@ interface ImageProps {
 
 export default async function Playlist({params}: {params: {playlistId: string}}) {
 
-    console.log('params' , params)
     const playlist = await getPlaylistTracks(params.playlistId) as SpotifyApiResponseProps;
-    console.log('playlist' , playlist)
 
     //Get tracks ids to get audio features of each track
     const ids = playlist.items.map(track => track.track.id).join(',');
     const tracksAudioFeatures = await getAudioFeatures(ids);
-    console.log('tracksAudioFeatures' , tracksAudioFeatures)
 
-     //! Que faire en cas de tracksWithAudioFeatures null ? Il faut pouvoir faire feater les tracks avec audio features et les mapper et évincer celles ou il n'y a pas de retours
-    //Add audio features to top tracks
-    let tracksWithAudioFeatures, tracksWithoutAudioFeatures
-    if (playlist.items.length === tracksAudioFeatures.audio_features.length) { 
-        tracksWithAudioFeatures = playlist.items.map((track, index) => {
-            return {
-                ...track,
-                audio_features: tracksAudioFeatures.audio_features[index]
-            }
-        })
-    } else {
-        tracksWithoutAudioFeatures = playlist.items
-    }
+    const audioFeaturesMap = new Map<string, any>();
+    tracksAudioFeatures.audio_features.forEach((audioFeature: any) => {
+        if (audioFeature && audioFeature.id) {
+            audioFeaturesMap.set(audioFeature.id, audioFeature)
+        }
+    })
+
+    const tracksWithAudioFeatures = playlist.items.filter(item => audioFeaturesMap.has(item.track.id)).map(item => { 
+        return {
+            ...item,
+            audio_features: audioFeaturesMap.get(item.track.id)
+        }
+    })
 
     console.log('tracksWithAudioFeatures' , tracksWithAudioFeatures)
-   
 
     return (
         <main className='w-full h-screen overflow-y-auto px-4 py-8 lg:px-12 lg:py-20'>
@@ -68,7 +64,7 @@ export default async function Playlist({params}: {params: {playlistId: string}})
                     key={index} 
                     position={index + 1} 
                     name={track.track.name}
-                    imageSrc={''}
+                    imageSrc={track.track.album.images ? track.track.album.images[1].url : ''}
                     artist={track.track.artists[0].name}
                     duration={track.track.duration_ms}
                     previewUrl={track.track.preview_url}
