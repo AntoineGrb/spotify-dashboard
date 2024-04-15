@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Spotify Dashboard 💻📈
 
-## Getting Started
+Spotify Dashboard est une application web permettant de suivre ses préférences d'écoutes sur la plateforme Spotify. 
 
-First, run the development server:
+L'appli est uploadée sur Vercel, voici le lien : [https://spotifydashboard.vercel.app/](https://spotifydashboard.vercel.app/) ! 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Présentation 🌟
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ce projet avait pour objectif de mettre à disposition des utilisateurs de Spotify un dashboard pour obtenir des statistiques et des tendances sur leur utilisation de l'application. 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Pour accéder au dashboard, l'utilisateur doit posséder un compte utilisateur sur Spotify et se connecter.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Les features disponibles sur le dashboard :
+- Ses artistes les plus écoutés (filtrage sur le mois, l'année ou depuis toujours)
+- Ses chansons les plus écoutées (filtrage sur le mois, l'année ou depuis toujours)
+- Les dernières chansons jouées sur l'appli
+- Ses playlists
 
-## Learn More
+En sélectionnant une chanson, l'utilisateur peut obtenir des statistiques interessantes telles que l'énergie ou la "dansabilité" de la track (indicateurs calculés et fournis par Spotify).
 
-To learn more about Next.js, take a look at the following resources:
+## Captures d'écrans 📖
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Technologies utilisées 🛠️
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **HTML / CSS**
+- **Next.js**
+- **Tailwind CSS**
+- **API Spotify**
