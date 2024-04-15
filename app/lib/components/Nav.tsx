@@ -19,16 +19,16 @@ export default function Nav({closeMenu}: NavProps) {
                         <h2 className={`relative top-[2px] ${pathname === '/dashboard' ? 'text-green-500' : 'white'}`} onClick={closeMenu}>DASHBOARD</h2>
                     </li>
                 </Link>
-                <Link href={`/top-artists`} className={`link ${pathname === '/top-artists' && 'bg-stone-800'} hover:bg-stone-800/50`}>
-                    <li className='flex gap-3 items-center px-4 py-2'>
-                        <User size={24} color={`${pathname === '/top-artists' ? '#22c55e' : 'white'}`} />
-                        <h2 className={`relative top-[2px] ${pathname === '/top-artists' ? 'text-green-500' : 'white'}`} onClick={closeMenu}> TOP ARTISTS </h2>
-                    </li>
-                </Link>
                 <Link href={`/top-tracks`} className={`link ${pathname === '/top-tracks' && 'bg-stone-800'} hover:bg-stone-800/50`}>
                     <li className='flex gap-3 items-center px-4 py-2'>
                         <Disc3 size={24} color={`${pathname === '/top-tracks' ? '#22c55e' : 'white'}`} />
                         <h2 className={`relative top-[2px] ${pathname === '/top-tracks' ? 'text-green-500' : 'white'}`} onClick={closeMenu}>TOP TRACKS</h2>
+                    </li>
+                </Link>
+                <Link href={`/top-artists`} className={`link ${pathname === '/top-artists' && 'bg-stone-800'} hover:bg-stone-800/50`}>
+                    <li className='flex gap-3 items-center px-4 py-2'>
+                        <User size={24} color={`${pathname === '/top-artists' ? '#22c55e' : 'white'}`} />
+                        <h2 className={`relative top-[2px] ${pathname === '/top-artists' ? 'text-green-500' : 'white'}`} onClick={closeMenu}> TOP ARTISTS </h2>
                     </li>
                 </Link>
                 <Link href={`/recently-played`} className={`link ${pathname === '/recently-played' && 'bg-stone-800'} hover:bg-stone-800/50`}>
