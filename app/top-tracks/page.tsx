@@ -3,7 +3,6 @@ import HeaderTitle from '@/app/lib/components/HeaderPageTitle';
 import Filters from '../lib/components/Filters';
 import TrackCard from '@/app/lib/components/TrackCard';
 import { getTopTracks, getAudioFeatures } from '@/app/lib/actions/data';
-
 interface TopTracksResponse {
     items: TopTracksItemProps[];
 }
@@ -52,6 +51,7 @@ export default async function TopTracksPage({searchParams}: {searchParams: Searc
     }
 
     return (
+        <>
         <main className='w-full h-screen overflow-y-auto px-4 py-8 lg:px-12 lg:py-20'>
             <HeaderTitle title='Top tracks' />
             <Filters />
@@ -72,5 +72,7 @@ export default async function TopTracksPage({searchParams}: {searchParams: Searc
             ))}
             </section>
         </main>
+        </>
+
     )
 }
