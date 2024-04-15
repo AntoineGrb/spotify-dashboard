@@ -26,6 +26,25 @@ const config: Config = {
         'gray-light': '#282828',
         'gray-font': '#B3B3B3',
         'white-font': '#FFFFFF',
+      },
+      keyframes: {
+        pulse1: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.5' },
+        },
+        pulse2: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.4' },
+        },
+        pulse3: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.7' },
+        }
+      },
+      animation: { 
+        'pulse-slow': 'pulse1 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-medium': 'pulse2 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-fast': 'pulse3 0.9s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       }
     },
   },

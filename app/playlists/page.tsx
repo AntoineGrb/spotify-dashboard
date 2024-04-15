@@ -27,6 +27,7 @@ export default async function PlaylistsPage() {
     const playlists = await getUserPlaylists() as SpotifyApiResponseProps;
 
     return (
+        <>
         <main className='w-full h-screen overflow-y-auto px-4 py-8 lg:px-12 lg:py-20'>
             <HeaderTitle title='Playlists' />
             <section className='grid grid-cols-1 gap-2'>
@@ -45,5 +46,6 @@ export default async function PlaylistsPage() {
             ))}
             </section>
         </main>
+        </>
     )
 }
