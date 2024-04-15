@@ -15,6 +15,7 @@ export default function DashboardPage({searchParams}: {searchParams: SearchParam
     const selectedFilter = searchParams.filter || 'month';
 
     return (
+        <>
         <main className='h-screen w-screen overflow-y-auto px-4 py-8 lg:px-12 lg:py-20'>
             <HeaderPageTitle title='Dashboard' />
             <Filters/>
@@ -29,5 +30,7 @@ export default function DashboardPage({searchParams}: {searchParams: SearchParam
             </HomeCardsList>
             <HomeTopGenres selectedFilter={selectedFilter} />
         </main>
+        </>
+
     )
 }
