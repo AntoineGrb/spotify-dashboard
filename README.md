@@ -20,7 +20,8 @@ En sélectionnant une chanson, l'utilisateur peut obtenir des statistiques inter
 
 ## Captures d'écrans 📖
 Quelques captures d'écrans de l'application : 
-![dash-1](https://github.com/AntoineGrb/spotify-dashboard/assets/119600392/7b06a08a-8455-4dc4-bbec-b1addbf07bc7)
+
+![Capture-dash](https://github.com/AntoineGrb/spotify-dashboard/assets/119600392/ba7d129c-4d25-4a57-b7f3-ae257c0169f8)
 ![dash-2-5](https://github.com/AntoineGrb/spotify-dashboard/assets/119600392/84aa62f5-d653-4297-8a20-4f452fa55aba)
 ![dash-3](https://github.com/AntoineGrb/spotify-dashboard/assets/119600392/62e462ea-ff7b-445a-9754-a840aa483dfc)
 
