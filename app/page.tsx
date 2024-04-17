@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, {useState} from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/app/lib/context/AuthContext';
 import { useRouter } from 'next/navigation';
@@ -7,11 +7,12 @@ import { useRouter } from 'next/navigation';
 export default function Home() {
 
   const { user } = useAuth();
+  const [isError, setIsError] = useState(false);
   const router = useRouter();
 
   if (user) {
     router.push('/dashboard');
-  }
+  } 
 
   return (
     <main className='w-full h-full px-4 py-8 lg:px-12 lg:py-20 flex flex-col justify-center'>
@@ -26,6 +27,7 @@ export default function Home() {
         <small className='text-center text-white'>
           This app is not affiliated with Spotify. It uses the Spotify API to get your data.
         </small>
+        <p className='text-red-400 text-center pt-8'>"This app is in dev mode. Users must be allowed to access the dashboard.</p>
       </section>
     </main>
   );
