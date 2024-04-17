@@ -4,6 +4,8 @@ Spotify Dashboard est une application web permettant de suivre ses préférences
 
 L'appli est uploadée sur Vercel, voici le lien : [https://spotifydashboard.vercel.app/](https://spotifydashboard.vercel.app/) ! 
 
+**[EDIT] : L'application est en dev mode, c'est à dire que les utilisateurs doivent être autorisés manuellement pour pouvoir se connecter. Une demande est en cours auprès de Spotify pour permettre l'accès à n'importe quel utilisateur. En attendant, il faudra me communiquer votre adresse email si vous souhaitez accéder à votre dashboard** 😊
+
 ## Présentation 🌟
 
 Ce projet avait pour objectif de mettre à disposition des utilisateurs de Spotify un dashboard pour obtenir des statistiques et des tendances sur leur utilisation de l'application. 
