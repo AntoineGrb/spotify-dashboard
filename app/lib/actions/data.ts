@@ -76,6 +76,7 @@ export const getTopTracks = async (timeRange: string, limit: number) => {
 
     const cookieStore = cookies();
     const accessToken = cookieStore.get('spotify_access_token');
+    console.log('accessToken:', accessToken)
     if (!accessToken) { 
         throw new Error('No access token found');
     }

@@ -10,13 +10,17 @@ interface HeaderMobileProps {
 const HeaderMobile = ({openMenu}: HeaderMobileProps) => { 
 
     const { user, logout } = useAuth();
+    let userImage: string = '';
+    if (user && user.images[1]) {
+        userImage = user.images[1].url;
+    }
 
     return (
         <header className='h-24 w-full px-5 flex justify-between items-center lg:hidden'>
             <div className='flex items-center gap-2'>
                 <div 
                     className='w-12 h-12 rounded-full bg-white'
-                    style={{backgroundImage: `url(${user?.images[1].url})`, backgroundSize: 'cover'}}
+                    style={{backgroundImage: `url(${userImage ? userImage : ''})`, backgroundSize: 'cover'}}
                 >
                 </div>
                 <p className='text-lg'> { user ? user.display_name : 'Connexion requise'} </p>

@@ -38,6 +38,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
                 setUser(data.user);
 
             } else {
+                console.log('user:' , data.user)
                 router.push('/');
             }
         }
